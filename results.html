@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Suggestions Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Meal Suggestions Results</h1>
+
+        <h2>Vegetarian Meal Suggestions:</h2>
+<ol>  <!-- Use ordered list for the suggestions -->
+    {% for suggestion in meal_suggestions %}
+        <li>{{ suggestion }}</li>
+    {% endfor %}
+</ol>
+
+
+        <h2>Vegetarian Meal Suggestions:</h2>
+        <p>{{ meal_suggestions }}</p>
+
+        {% if non_veg_explanations %}
+            <h2>Non-Vegetarian Item Explanations:</h2>
+            <ul>
+                {% for item, explanation in non_veg_explanations.items() %}
+                    <li><strong>{{ item }}</strong>: {{ explanation }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>

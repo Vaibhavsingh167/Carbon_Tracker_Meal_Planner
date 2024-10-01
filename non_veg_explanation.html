@@ -1,0 +1,18 @@
+<!-- non_veg_explanation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Vegetarian Explanations</title>
+</head>
+<body>
+    <h1>Reasons to Avoid Non-Vegetarian Items</h1>
+    {% for item, explanation in non_veg_explanations.items() %}
+        <h2>{{ item.capitalize() }}</h2>
+        <p>{{ explanation }}</p>
+    {% endfor %}
+    <a href="{{ url_for('index') }}">Go Back</a>
+</body>
+</html>
+
